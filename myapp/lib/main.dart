@@ -44,7 +44,7 @@ class MainView extends StatelessWidget {
     ];
 
     return ListView.builder(
-      itemBuilder: (context, index) => _item(todo[index]),
+      itemBuilder: (context, [index]) => _item(todo[index]),
       itemCount: todo.length,
     );
   }
@@ -89,6 +89,34 @@ class SecondView extends StatelessWidget {
       appBar: AppBar(
         title: Text("TIG169 TODO"),
       ),
+      body: Center(
+        child: 
+          Column(mainAxisAlignment: MainAxisAlignment.start, 
+          children: [
+            Container(
+              margin: EdgeInsets.all(40),
+              child: TextFormField(
+                  style: TextStyle(fontSize: 20),
+                  decoration: InputDecoration(
+                    hintText: "What are you going to do?",
+                    border: OutlineInputBorder(borderRadius: BorderRadius.horizontal()
+                    ),
+                  )
+              ),
+            ),
+            Container(
+              width: 80,
+              height: 30,
+              child: Row(
+                children: [
+                  Icon(Icons.add),
+                  Text("ADD", style: TextStyle(fontSize: 20))
+                ],
+              )
+            )
+          ]
+        ),
+      )
     );
   }
 }
