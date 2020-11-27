@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
 class TodoItem {
-  String todoname = "default";
-  bool completionstatus = false;
-  TodoItem({this.todoname, this.completionstatus});
+  String title = "default";
+  bool done = false;
+  TodoItem({this.title, this.done});
 }
 
 class MyState extends ChangeNotifier {
   List<TodoItem> _list = [
-    TodoItem(todoname: "sova", completionstatus: false),
-    TodoItem(todoname: "vakna", completionstatus: true),
-    TodoItem(todoname: "bädda", completionstatus: false),
-    TodoItem(todoname: "städa", completionstatus: true),
+    TodoItem(title: "sova", done
+: false),
+    TodoItem(title: "vakna", done
+: true),
+    TodoItem(title: "bädda", done
+: false),
+    TodoItem(title: "städa", done
+: true),
   ];
 
   List<TodoItem> donelista;
@@ -41,11 +45,14 @@ class MyState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeCompletionStatus(TodoItem item) {
-    if (item.completionstatus) {
-      item.completionstatus = false;
+  void changeDone(TodoItem item) {
+    if (item.done
+) {
+      item.done
+   = false;
     } else
-      item.completionstatus = true;
+      item.done
+   = true;
     notifyListeners();
   }
 
@@ -55,13 +62,15 @@ class MyState extends ChangeNotifier {
 
     for (int i = 0; i < list.length; i++) {
       for (int j = 0; j < donelista.length; j++) {
-        if (donelista[j].completionstatus == false) donelista.removeAt(j);
+        if (donelista[j].done
+     == false) donelista.removeAt(j);
       }
     }
 
     for (int m = 0; m < list.length; m++) {
       for (int n = 0; n < notdonelista.length; n++) {
-        if (notdonelista[n].completionstatus) notdonelista.removeAt(n);
+        if (notdonelista[n].done
+    ) notdonelista.removeAt(n);
       }
     }
   }

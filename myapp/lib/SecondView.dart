@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'model.dart';
 
 class SecondView extends StatelessWidget {
-  String todoname = "";
+  String title = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class SecondView extends StatelessWidget {
                       borderRadius: BorderRadius.horizontal()),
                 ),
                 onChanged: (text) {
-                  todoname = text;
+                  title = text;
                 },
               ),
             ),
@@ -39,7 +39,7 @@ class SecondView extends StatelessWidget {
                         Navigator.pop(
                             context,
                             TodoItem(
-                                todoname: todoname, completionstatus: false));
+                                title: title, done: false));
                       })
                 ],
               ),
