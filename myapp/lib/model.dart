@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:myapp/remotedatahandler.dart';
 
 class TodoItem {
+  String id;
   String title = "default";
   bool done = false;
   TodoItem({this.title, this.done});
 }
 
 class MyState extends ChangeNotifier {
-  List<TodoItem> _list = [
-    TodoItem(title: "sova", done
-: false),
-    TodoItem(title: "vakna", done
-: true),
-    TodoItem(title: "bädda", done
-: false),
-    TodoItem(title: "städa", done
-: true),
-  ];
+  List<TodoItem> _list = [];
 
   List<TodoItem> donelista;
   List<TodoItem> notdonelista;
@@ -35,12 +30,15 @@ class MyState extends ChangeNotifier {
     return notdonelista;
   }
 
-  void addItem(TodoItem item) {
+  void addItem(TodoItem item) async {
+    await RemoteDataHandler.addTodo(item, item.title, false);
+    item.id = await RemoteDataHandler.getLastId();
     _list.add(item);
     notifyListeners();
   }
 
-  void removeItem(TodoItem item) {
+  void removeItem(TodoItem item) async {
+    await RemoteDataHandler.removeTodo(item.id);
     _list.remove(item);
     notifyListeners();
   }
