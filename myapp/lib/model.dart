@@ -21,7 +21,7 @@ class MyState extends ChangeNotifier {
   void setList() async {
     int listlength = await RemoteDataHandler.getLengthOfList();
 
-    for (int i=0; i < listlength; i++) {
+    for (int i = 0; i < listlength; i++) {
       String id = await RemoteDataHandler.getId(i);
       String title = await RemoteDataHandler.getTitle(i);
       bool done = await RemoteDataHandler.getDone(i);
@@ -59,10 +59,10 @@ class MyState extends ChangeNotifier {
 
   void changeDone(TodoItem item) async {
     if (item.done) {
-      item.done = false;    
+      item.done = false;
     } else
       item.done = true;
-      await RemoteDataHandler.updateTodo(item.id, item.title, item.done);
+    await RemoteDataHandler.updateTodo(item.id, item.title, item.done);
     notifyListeners();
   }
 
@@ -72,15 +72,13 @@ class MyState extends ChangeNotifier {
 
     for (int i = 0; i < list.length; i++) {
       for (int j = 0; j < donelista.length; j++) {
-        if (donelista[j].done
-     == false) donelista.removeAt(j);
+        if (donelista[j].done == false) donelista.removeAt(j);
       }
     }
 
     for (int m = 0; m < list.length; m++) {
       for (int n = 0; n < notdonelista.length; n++) {
-        if (notdonelista[n].done
-    ) notdonelista.removeAt(n);
+        if (notdonelista[n].done) notdonelista.removeAt(n);
       }
     }
   }

@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'model.dart';
 
 class RemoteDataHandler {
+
   static Future<http.Response> getTodos() async {
     var url =
         "https://todoapp-api-vldfm.ondigitalocean.app/todos?key=8c369cde-628d-431c-b83c-8b9e1f765b9c";
@@ -19,7 +20,7 @@ class RemoteDataHandler {
   }
 
   static Future<http.Response> addTodo(
-    TodoItem item, String title, bool done) async {
+      TodoItem item, String title, bool done) async {
     var url =
         "https://todoapp-api-vldfm.ondigitalocean.app/todos?key=8c369cde-628d-431c-b83c-8b9e1f765b9c";
     var body = json.encode({"title": title, "done": done});
@@ -45,7 +46,7 @@ class RemoteDataHandler {
   }
 
   static Future<http.Response> updateTodo(
-    String id, String title, bool done) async {
+      String id, String title, bool done) async {
     var url =
         "https://todoapp-api-vldfm.ondigitalocean.app/todos/$id?key=8c369cde-628d-431c-b83c-8b9e1f765b9c";
     var body = json.encode({"title": title, "done": done});

@@ -34,13 +34,12 @@ class SecondView extends StatelessWidget {
               child: Row(
                 children: [
                   FlatButton(
-                      child: Text("+ ADD", style: TextStyle(fontSize: 20)),
-                      onPressed: () {
-                        Navigator.pop(
-                            context,
-                            TodoItem.constructor1(
-                                title: title, done: false));
-                      })
+                    child: Text("+ ADD", style: TextStyle(fontSize: 20)),
+                    onPressed: () {
+                      Navigator.pop(context,
+                          TodoItem.constructor1(title: title, done: false));
+                    },
+                  ),
                 ],
               ),
             ),
