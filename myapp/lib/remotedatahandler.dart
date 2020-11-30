@@ -14,8 +14,6 @@ class RemoteDataHandler {
     };
 
     final response = await http.get(url, headers: headers);
-    final responseJson = json.decode(response.body);
-    print(responseJson);
     return response;
   }
 
