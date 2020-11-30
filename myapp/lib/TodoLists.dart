@@ -54,11 +54,12 @@ class TodoList extends StatelessWidget {
               ),
               Container(
                 child: FlatButton(
-                    child: (Icon(Icons.clear, size: 30)),
-                    onPressed: () {
-                      var state = Provider.of<MyState>(context, listen: false);
-                      state.removeItem(item);
-                    }),
+                  child: (Icon(Icons.clear, size: 30)),
+                  onPressed: () {
+                    var state = Provider.of<MyState>(context, listen: false);
+                    state.removeItem(item);
+                  },
+                ),
                 width: 50,
               ),
             ],

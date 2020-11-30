@@ -38,7 +38,7 @@ class SecondView extends StatelessWidget {
                       onPressed: () {
                         Navigator.pop(
                             context,
-                            TodoItem(
+                            TodoItem.constructor1(
                                 title: title, done: false));
                       })
                 ],
