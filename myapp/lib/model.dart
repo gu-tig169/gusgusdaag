@@ -20,7 +20,7 @@ class MyState extends ChangeNotifier {
 
   void setList() async {
     int listlength = await RemoteDataHandler.getLengthOfList();
-
+    
     for (int i = 0; i < listlength; i++) {
       String id = await RemoteDataHandler.getId(i);
       String title = await RemoteDataHandler.getTitle(i);
