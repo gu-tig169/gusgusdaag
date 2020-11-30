@@ -30,23 +30,23 @@ class TodoList extends StatelessWidget {
                 child: Row(
                   children: [
                     Checkbox(
-                      value: item.completionstatus,
+                      value: item.done,
                       onChanged: (bool value) {
                         var state =
                             Provider.of<MyState>(context, listen: false);
-                        state.changeCompletionStatus(item);
+                        state.changeDone(item);
                       },
                     ),
-                    if (item.completionstatus)
+                    if (item.done)
                       Text(
-                        item.todoname,
+                        item.title,
                         style: TextStyle(
                             fontSize: 20,
                             decoration: TextDecoration.lineThrough),
                       )
                     else
                       Text(
-                        item.todoname,
+                        item.title,
                         style: TextStyle(fontSize: 20),
                       ),
                   ],
